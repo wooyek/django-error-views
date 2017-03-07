@@ -1,0 +1,12 @@
+{% extends 'django_error_views/error_base.html' %}
+{% block title %}{% blocktrans %}Page not found{% endblocktrans %}{% endblock %}
+{% block error %}
+    <h1>{% blocktrans %}We're sorry we don't recognize this URL{% endblocktrans %}</h1>
+    <p>HTTP 404 Not Found</p>
+{% endblock %}
+{% block actions %}
+    <p class="lead text-primary">{{ request.build_absolute_uri }}</p>
+    <p>If this URL was machine generated, please notify us, we'll correct an error.</p>
+    <p>If this URL was entered by hand please make sure it was entered correctly, if so please notify us.</p>
+    {{ block.super }}
+{% endblock %}

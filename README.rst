@@ -35,18 +35,11 @@ Add it to your `INSTALLED_APPS`:
         ...
     )
 
-Add Django Error Views's URL patterns:
+Add Django Error Views's handlers to your project `url.py`:
 
 .. code-block:: python
 
-    from django_error_views import urls as django_error_views_urls
-
-
-    urlpatterns = [
-        ...
-        url(r'^', include(django_error_views_urls)),
-        ...
-    ]
+    from django_error_views.handlers import *
 
 Features
 --------

@@ -15,9 +15,44 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.core.exceptions import SuspiciousOperation, PermissionDenied
+from django.http.response import HttpResponseNotFound, Http404
+from django.views import View
+from django.views.generic import TemplateView
+
+# This is example use of Django Error Views defaults
+
+from django_error_views.handlers import *
+
+
+class Http400View(View):
+    # noinspection PyMethodMayBeStatic
+    def get(self, request, *args, **kwarg):
+        raise SuspiciousOperation("This is a test error")
+
+
+class Http403View(View):
+    # noinspection PyMethodMayBeStatic
+    def get(self, request, *args, **kwarg):
+        raise PermissionDenied("This is a test error")
+
+
+class Http404View(View):
+    # noinspection PyMethodMayBeStatic
+    def get(self, request, *args, **kwarg):
+        raise Http404("This is a test error")
+
+
+class Http500View(View):
+    # noinspection PyMethodMayBeStatic
+    def get(self, request, *args, **kwarg):
+        raise Exception("This is a test error")
 
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'', include('django_error_views.urls', namespace='django_error_views')),
+    url(r'^$', TemplateView.as_view(template_name="start.html")),
+    url(r'400', Http400View.as_view()),
+    url(r'403', Http403View.as_view()),
+    url(r'404', Http404View.as_view()),
+    url(r'500', Http500View.as_view()),
 ]

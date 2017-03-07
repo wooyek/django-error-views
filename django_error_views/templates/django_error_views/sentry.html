@@ -1,0 +1,14 @@
+<!-- Sentry JS SDK 2.1.+ required -->
+<script src="https://cdn.ravenjs.com/2.1.0/raven.min.js"></script>
+<script>
+    Raven.showReportDialog({
+    {% if request.user.is_authenticated %}
+        user: {
+            name: '{{ request.user.get_full_name }}',
+            email: '{{ request.user.email }}'
+        },
+    {% endif %}
+        eventId: '{{ request.sentry.id }}',
+        dsn: '{{ sentry_public_dsn }}',
+    });
+</script>

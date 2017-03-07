@@ -1,0 +1,37 @@
+{% load i18n %}
+<!DOCTYPE>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <style>
+        .error-actions {
+            margin: 20px 0
+        }
+
+        .jumbotron {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="jumbotron ">
+                    {% block error %}{% endblock %}
+                </div>
+                {% block actions %}
+                    {% include 'django_error_views/error_actions.html' %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% if request and request.sentry and sentry_public_dsn %}
+{% include 'django_error_views/sentry.html' %}
+{% endif %}
+</body>
+</html>

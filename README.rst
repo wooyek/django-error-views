@@ -44,7 +44,16 @@ Add Django Error Views's handlers to your project `url.py`:
 Features
 --------
 
-* TODO
+This app sets `Django error handlers <https://docs.djangoproject.com/en/1.10/ref/urls/>`_
+with sensible defaults that will have some `context with them <django_error_views/views.py>`_:
+
+* error message
+* support email
+* status_code
+* request
+* sentry_public_dsn - optional
+
+This will help to render error pages that are usable to something more that render a static error message. Run an example to see how it works.
 
 Running Tests
 -------------

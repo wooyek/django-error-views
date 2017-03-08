@@ -13,6 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
+from django.conf import settings
 from django.conf.urls import url, include
 from django.contrib import admin
 from django.core.exceptions import SuspiciousOperation, PermissionDenied
@@ -56,3 +57,9 @@ urlpatterns = [
     url(r'404', Http404View.as_view()),
     url(r'500', Http500View.as_view()),
 ]
+
+if settings.TEST_ERROR_VIEW:
+    from django_error_views.views import TestErrView
+    urlpatterns += [
+        url(r'err', TestErrView.as_view()),
+    ]

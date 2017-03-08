@@ -1,4 +1,6 @@
 {% extends 'django_error_views/error_base.html' %}
+{% load i18n %}
+
 {% block title %}{% blocktrans %}Page not found{% endblocktrans %}{% endblock %}
 {% block error %}
     <h1>{% blocktrans %}We're sorry we don't recognize this URL{% endblocktrans %}</h1>

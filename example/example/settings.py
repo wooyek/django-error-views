@@ -131,8 +131,14 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# Optional Sentry integration
-SENTRY_PUBLIC_DSN = env('SENTRY_PUBLIC_DSN')
+# Sentry integration
+# ------------------
+# This example makes these settings required. Don't put them in your settings you are not using sentry.
+# https://docs.sentry.io/clients/python/
 RAVEN_CONFIG = {
     'dsn': env('SENTRY_DSN'),
 }
+
+# SECURITY WARNING!
+# This will be publicly visible in the error page javascript. Do not include DSN secret here.
+SENTRY_PUBLIC_DSN = env('SENTRY_PUBLIC_DSN')

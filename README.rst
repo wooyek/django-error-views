@@ -53,7 +53,8 @@ with sensible defaults that will have some `context with them <django_error_view
 * request
 * sentry_public_dsn - optional
 
-This will help to render error pages that are usable to something more that render a static error message. Run an example to see how it works.
+This will help to render error pages that are usable to something more that render a static error message. 
+Run an example to see how it works.
 
 Running Tests
 -------------

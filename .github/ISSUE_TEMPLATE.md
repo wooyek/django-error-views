@@ -1,7 +1,8 @@
 * Django Error Views version:
 * Django version:
-* Python version:
-* Operating System:
+* Python version `python -V`:
+* Operating System `inxi -S`:
+
 
 ### Description
 

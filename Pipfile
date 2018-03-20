@@ -1,0 +1,55 @@
+[[source]]
+
+verify_ssl = true
+url = "https://pypi.python.org/simple"
+name = "pypi"
+
+
+[packages]
+
+click = "*"
+Django = ">=2.0"
+django-environ = "*"
+django-formtools = "*"
+django-import-export = "*"
+django-localflavor = "*"
+django-pascal-templates = "*"
+"enum34" = "*"
+"psycopg2" = "*"
+pycountry = "*"
+pytz = "*"
+pathlib = "*"
+requests = "*"
+
+
+[dev-packages]
+
+factory_boy = "*"
+mock = "*"
+pytest = "*"
+pytest-xdist = "*"
+pytest-html = "*"
+pytest-django = "*"
+pytest-sugar = "*"
+pytest-cov = "*"
+python-coveralls = "*"
+"psycopg2" = "*"
+django-environ = "*"
+pathlib = "*"
+"enum34" = "*"
+"5df3d4c" = {editable = true, path = "/data/work/wooyek/django-error-views"}
+"bump2version" = "*"
+check-manifest = "*"
+codecov = "*"
+coverage = "*"
+detox = "*"
+"flake8" = "*"
+isort = "*"
+Pygments = "*"
+readme_renderer = "*"
+tox = "*"
+Sphinx = ">=1.6.5"
+sphinx_rtd_theme = "*"
+docutils = "==0.13.1"
+sphinxcontrib-spelling = "*"
+pyenchant = "*"

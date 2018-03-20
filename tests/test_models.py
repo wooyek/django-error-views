@@ -1,25 +1,16 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""
-test_django-error-views
-------------
-
-Tests for `django-error-views` models module.
-"""
-
 from django.test import TestCase
 
-from django_error_views import models
+from django_error_views import factories, models
 
 
-class TestDjango_error_views(TestCase):
-
-    def setUp(self):
-        pass
+class TestSampleModel(TestCase):
 
     def test_something(self):
-        pass
+        self.assertIsNotNone(models)
 
-    def tearDown(self):
-        pass
+    def test_user_factory(self):
+        user = factories.UserFactory()
+        self.assertIsNotNone(user)

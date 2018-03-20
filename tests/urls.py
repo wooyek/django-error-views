@@ -1,10 +1,8 @@
 # -*- coding: utf-8
-from __future__ import unicode_literals, absolute_import
+from __future__ import absolute_import, unicode_literals
 
-from django.conf.urls import url, include
-
-from django_error_views.urls import urlpatterns as django_error_views_urls
+from django.conf.urls import include, url
 
 urlpatterns = [
-    url(r'^', include(django_error_views_urls, namespace='django_error_views')),
+    url(r'^', include('django_error_views.urls', namespace='django_error_views')),
 ]

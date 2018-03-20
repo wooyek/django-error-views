@@ -66,7 +66,7 @@ isort:
 
 lint: ## check style with flake8
 	flake8 src tests setup.py manage.py
-	isort --verbose --check-only --diff --recursive src tests example_project setup.py
+	isort --check-only --diff --recursive src tests example_project setup.py
 	python setup.py check --strict --metadata --restructuredtext
 	check-manifest  --ignore .idea,.idea/* .
 
@@ -75,7 +75,7 @@ test: ## run tests quickly with the default Python
 
 tox: ## run tests on every Python version with tox
 	tox --skip-missing-interpreters --recreate
-	
+
 detox: ## run tests on every Python version with tox
 	#detox --skip-missing-interpreters --recreate
 	tox -l | $(DETOXME) | sh

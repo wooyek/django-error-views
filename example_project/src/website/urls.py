@@ -14,16 +14,17 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf import settings
-from django.conf.urls import url, include
+from django.conf.urls import include, url
 from django.contrib import admin
-from django.core.exceptions import SuspiciousOperation, PermissionDenied
-from django.http.response import HttpResponseNotFound, Http404, HttpResponseNotAllowed
+from django.core.exceptions import PermissionDenied, SuspiciousOperation
+from django.http.response import Http404, HttpResponseNotAllowed, HttpResponseNotFound
 from django.views import View
 from django.views.generic import TemplateView
 
+from django_error_views.handlers import *
+
 # This is example use of Django Error Views defaults
 
-from django_error_views.handlers import *
 
 
 class Http400View(View):

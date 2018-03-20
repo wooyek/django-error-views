@@ -29,6 +29,12 @@ class ErrorView(TemplateView):
         response.render()
         return response
 
+    def post(self, request, *args, **kwargs):
+        return self.get(request, *args, **kwargs)
+
+    def delete(self, request, *args, **kwargs):
+        return self.post(request, *args, **kwargs)
+
 
 class TestErrView(View):
     """Raise an error on purpose to test any health monitoring features"""

@@ -1,0 +1,11 @@
+{% extends 'django_error_views/error_base.html' %}
+{% load i18n %}
+{% block title %}{% blocktrans %}Bad request{% endblocktrans %}{% endblock %}
+{% block error %}
+    <h1>{% blocktrans %}You have used a bad URL address{% endblocktrans %}</h1>
+    <p>HTTP 400 Bad Request</p>
+    <p>{{ request.path }}</p>
+    {% if message %}
+        <p class='message'>{{ message }}</p>
+    {% endif %}
+{% endblock %}

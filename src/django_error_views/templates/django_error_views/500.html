@@ -1,0 +1,16 @@
+{% extends 'django_error_views/error_base.html' %}
+{% load i18n %}
+{% block title %}{% blocktrans %}Server error{% endblocktrans %}{% endblock %}
+{% block error %}
+    <h1>{% blocktrans %}Oops! An error occurred{% endblocktrans %}</h1>
+
+    <p>HTTP 500 Internal Server Error</p>
+    {% if message %}
+        <div class='message'>{{ message }}</div>
+    {% endif %}
+{% endblock %}
+{% block actions %}
+    <p>{% blocktrans %}We're sorry for the inconvenience. We should get notified of the error and we'll correct it as soon as possible{% endblocktrans %}
+    {{ block.super }}
+{% endblock %}
+

@@ -25,7 +25,8 @@ class ErrorView(TemplateView):
     def dispatch(self, request, *args, **kwargs):
         response = super(ErrorView, self).dispatch(request, *args, **kwargs)
         response.status_code = self.status_code
-        response.render()
+        if hasattr(response, 'render'):
+            response.render()
         return response
 
     def post(self, request, *args, **kwargs):

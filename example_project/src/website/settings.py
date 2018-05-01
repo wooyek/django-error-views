@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
+from pathlib import Path
 
 import environ
 
@@ -127,6 +128,14 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+# https://docs.djangoproject.com/en/1.9/topics/i18n/translation/#how-django-discovers-language-preference
+import django_error_views  # noqa F402 isort:skip
+
+LOCALE_PATHS = [
+    str(Path(django_error_views.__file__).parent / 'locales'),
+    # str(BASE_DIR / 'locales'),
+]
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
